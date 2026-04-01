@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Globe, Shield, Terminal } from 'lucide-react';
+import { Menu, X, Building2, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -16,50 +16,53 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Services', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-md border-b border-slate-100' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center space-x-2"
         >
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-            <Terminal className="text-white w-6 h-6" />
+          <div className="w-10 h-10 bg-amber-600 rounded-lg flex items-center justify-center shadow-lg shadow-amber-900/20">
+            <Building2 className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
-            NetAdmin.
-          </span>
+          <div className="flex flex-col leading-none">
+            <span className="text-xl font-bold text-slate-900 tracking-tight">
+              ENEO <span className="text-amber-600">CAPITAL</span>
+            </span>
+            <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Limited</span>
+          </div>
         </motion.div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-10">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-slate-300 hover:text-blue-400 transition-colors font-medium text-sm uppercase tracking-wider"
+              className="text-slate-600 hover:text-amber-600 transition-colors font-semibold text-sm uppercase tracking-wider"
             >
               {link.name}
             </a>
           ))}
           <a
             href="#contact"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-blue-900/20"
+            className="flex items-center bg-slate-900 hover:bg-amber-600 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-slate-900/10"
           >
-            Hire Me
+            <Phone size={14} className="mr-2" />
+            Consult Now
           </a>
         </div>
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-slate-900 p-2">
             {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -72,7 +75,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-slate-900 border-b border-slate-800"
+            className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
           >
             <div className="flex flex-col p-6 space-y-4">
               {navLinks.map((link) => (
@@ -80,11 +83,18 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-slate-300 hover:text-blue-400 text-lg font-medium"
+                  className="text-slate-600 hover:text-amber-600 text-lg font-bold"
                 >
                   {link.name}
                 </a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setIsOpen(false)}
+                className="bg-amber-600 text-white text-center py-3 rounded-xl font-bold"
+              >
+                Contact Us
+              </a>
             </div>
           </motion.div>
         )}

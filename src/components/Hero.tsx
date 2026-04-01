@@ -1,104 +1,73 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Server, Shield, Activity } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Home } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
       {/* Background with Overlay */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('https://storage.googleapis.com/dala-prod-public-storage/generated-images/0da801a8-d0bb-4edf-a4fe-ccc1cee803bc/hero-background-e261bc8e-1775074979454.webp')` }}
+        style={{ backgroundImage: `url('https://storage.googleapis.com/dala-prod-public-storage/generated-images/0da801a8-d0bb-4edf-a4fe-ccc1cee803bc/luxury-property-hero-ec868829-1775076173747.webp')` }}
       >
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
-            <Activity size={16} className="mr-2 animate-pulse" />
-            Senior Network Administrator
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Architecting <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              Resilient Networks
-            </span>
-          </h1>
-          <p className="text-slate-400 text-lg md:text-xl mb-8 max-w-lg">
-            Specializing in enterprise infrastructure, cloud integration, and cybersecurity. Ensuring 99.99% uptime for global operations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="#projects" 
-              className="flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-all transform hover:-translate-y-1 shadow-xl shadow-blue-900/40"
-            >
-              View Projects
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </a>
-            <a 
-              href="#contact" 
-              className="flex items-center justify-center px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold transition-all border border-slate-700"
-            >
-              Get In Touch
-            </a>
-          </div>
-
-          <div className="mt-12 flex items-center space-x-8 opacity-60">
-            <div className="flex items-center space-x-2">
-              <Server className="text-blue-400" size={20} />
-              <span className="text-white text-sm">Cisco Certified</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Shield className="text-blue-400" size={20} />
-              <span className="text-white text-sm">Security Specialist</span>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="hidden md:block relative"
-        >
-          <div className="relative z-10 w-full aspect-square bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl border border-white/10 flex items-center justify-center p-8 backdrop-blur-3xl overflow-hidden group">
-             <img 
-               src="https://storage.googleapis.com/dala-prod-public-storage/generated-images/0da801a8-d0bb-4edf-a4fe-ccc1cee803bc/abstract-network-bg-bb765e6f-1775074978596.webp" 
-               className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700"
-               alt="Network Visualization"
-             />
-             <div className="relative flex flex-col items-center text-center">
-                <div className="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 border border-blue-500/30">
-                  <Activity size={48} className="text-blue-400" />
-                </div>
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-white tracking-widest">SYSTEM ONLINE</div>
-                  <div className="flex gap-1 justify-center">
-                    {[1,2,3,4,5].map(i => (
-                      <div key={i} className="w-2 h-4 bg-blue-500 animate-pulse" style={{ animationDelay: `${i * 0.2}s` }}></div>
-                    ))}
-                  </div>
-                </div>
-             </div>
-          </div>
-          {/* Floating Cards */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -top-6 -right-6 bg-slate-900/90 border border-slate-700 p-4 rounded-2xl shadow-2xl backdrop-blur-md"
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-sm text-slate-300 font-mono">Status: All Nodes Active</span>
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-400 text-sm font-bold mb-6 backdrop-blur-md">
+              <Home size={16} className="mr-2" />
+              Premier Property Management in Kenya
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
+              Unlock Your <span className="text-amber-500">Property's</span> <br />
+              Full Potential.
+            </h1>
+            <p className="text-slate-300 text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
+              Eneo Capital Limited provides innovative financial solutions and comprehensive property management tailored for modern landlords and property owners.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-5 mb-12">
+              <a 
+                href="#services" 
+                className="flex items-center justify-center px-10 py-4 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold transition-all transform hover:-translate-y-1 shadow-2xl shadow-amber-900/40"
+              >
+                Our Services
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+              <a 
+                href="#contact" 
+                className="flex items-center justify-center px-10 py-4 bg-white hover:bg-slate-100 text-slate-900 rounded-xl font-bold transition-all border border-white/20"
+              >
+                Get a Quote
+              </a>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">
+              <div className="flex items-center space-x-3">
+                <CheckCircle2 className="text-amber-500" size={20} />
+                <span className="text-white/80 text-sm font-medium">Land Rent Advances</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle2 className="text-amber-500" size={20} />
+                <span className="text-white/80 text-sm font-medium">Rental Collection Loans</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle2 className="text-amber-500" size={20} />
+                <span className="text-white/80 text-sm font-medium">Expert Management</span>
+              </div>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
+      
+      {/* Decorative element */}
+      <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-amber-600/10 blur-[120px] rounded-full"></div>
     </section>
   );
 };
